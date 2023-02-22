@@ -2,8 +2,7 @@ Rails.application.routes.draw do
 
   # Routes for the Bookmark resource:
   #=> "user_authentication", :action => "sign_up_form" }) 
-  get '/', to: "application#home"
-
+  get("/", { :controller => "user_authentication", :action => "home" })  
   # CREATE
   post("/insert_bookmark", { :controller => "bookmarks", :action => "create" })
           
