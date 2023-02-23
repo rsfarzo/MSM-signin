@@ -17,7 +17,22 @@
         </a>
       </div>
     </div>
-
+<hr>
+      <% 
+      bm= Bookmark.where(:movie_id=>@the_movie.id, :user_id => @current_user.id)
+      if bm.size.zero? %>
+        <!------------------------------------------------------>
+        <form action="/insert_bookmark" method="post">
+          <input hidden type="text" id="user_id_box" name="query_user_id" value="<%=@current_user.id %>">
+          <input hidden type="text" id="movie_id_box" name="query_movie_id" value="<%=@the_movie.id %>">
+          <button>Bookmark this movie!</button>
+        </form> 
+      <!------------------------------------------------------>
+      <% else %>
+        <a href="/delete_bookmark/<%= bm.first.id %>">
+          Un-bookmark
+        </a>
+      <% end %>
     <dl>
       <dt>
         Title

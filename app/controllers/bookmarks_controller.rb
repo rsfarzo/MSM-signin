@@ -21,6 +21,7 @@ class BookmarksController < ApplicationController
     the_bookmark = Bookmark.new
     the_bookmark.user_id = params.fetch("query_user_id")
     the_bookmark.movie_id = params.fetch("query_movie_id")
+    p "--------------------------------------------"
 
     if the_bookmark.valid?
       the_bookmark.save
