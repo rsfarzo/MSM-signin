@@ -12,7 +12,7 @@
       <input hidden type="text" id="user_id_box" name="query_user_id" value="<%=@current_user.id %>">
       <div>
       <% if Movie.all.size>0%>
-          <select name="query_movie_id" id="movies">
+          <select name="query_movie_id" id="movie_id_box">
           <% Movie.all.each do |m|%>
              <% if Bookmark.where(:user_id=>@current_user.id,:movie_id=>m.id).length.zero?%>
               <option value="<%=m.id%>"><%=m.title%></option>
